@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+E:/C++/clion/BigInt/BigInt.h
+vector
+-
+string
+-
+exception
+-
+ostream
+-
+
+E:/C++/clion/BigInt/main.cpp
+iostream
+-
+BigInt.h
+E:/C++/clion/BigInt/BigInt.h
+
