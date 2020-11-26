@@ -8,6 +8,7 @@
 #include <string>
 #include <exception>
 #include <ostream>
+#include <istream>
 #define BIGINT_BEGIN namespace BInt {
 #define BIGINT_END }
 
@@ -25,6 +26,7 @@ int toInt(const char& _ch);
 
 class BigInt {
     friend std::ostream &operator << (std::ostream &out, const BigInt &va);
+    friend std::istream &operator >> (std::istream &is, BigInt &va);
 public:
     BigInt();
     explicit BigInt(const std::string& _e);
@@ -34,10 +36,22 @@ public:
     //operator
     BigInt operator+(const BigInt& _anotherInt) const;
     BigInt operator+=(const BigInt& _anotherInt) ;
+    BigInt operator-=(const BigInt& _anotherInt) ;
+    BigInt operator-(const BigInt& _anotherInt) const;
+    bool operator<(const BigInt& _anotherInt) const;
+    bool operator>(const BigInt& _anotherInt) const;
+    bool operator<=(const BigInt& _anotherInt) const;
+    bool operator>=(const BigInt& _anotherInt) const;
+    bool operator!=(const BigInt& _anotherInt) const;
+    bool operator==(const BigInt& _anotherInt) const;
     //BigInt operator-(const BigInt& _anotherInt);
 
+    //other
+    BigInt abs() const;
+
 private:
-    BigInt& carry();
+    BigInt& carryAdd();
+    BigInt& carryMin();
     bool nonNegative;
     std::vector<int> _ele;
 };
